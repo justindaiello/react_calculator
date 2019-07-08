@@ -1,4 +1,3 @@
-//File taken from Next.js documentataion. This prevents the page from rendering for a split second without CSS. Goes over the whole component tree and fetches styled CSS before html is rendered to the page. This allows the styled components library to work and not have the page refresh for a split second with no styling.
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
