@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 import Meta from './Meta';
+import Display from './Display';
 
 const theme = {
   offWhite: '#EDEDED',
@@ -57,12 +58,18 @@ const CalculatorRowStyles = styled.div`
 `;
 
 class Page extends Component {
+
+  state = {
+    display: 0
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
           <CalculatorStyles>
+            <Display display={this.state.display}/>
             <CalculatorRowStyles>
               <button>7</button>
               <button>8</button>
