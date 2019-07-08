@@ -16,6 +16,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-styled-components": "^1.7.1",
     "eslint": "^5.16.0",
+    "mathjs": "^6.0.3",
     "next": "^7.0.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.6.2",

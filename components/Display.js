@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Display = props => (
-  <div>{props.display}</div>
+  <div>{props.input}</div>
 )
 
 export default Display;
