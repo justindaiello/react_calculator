@@ -1,6 +1,8 @@
+import Page from '../components/Page';
+
 const Index = () => (
   <div>
-    <p>Hello</p>
+    <Page />
   </div>
 )
 
