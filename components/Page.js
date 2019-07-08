@@ -4,6 +4,7 @@ import * as math from 'mathjs';
 import Meta from './Meta';
 import Display from './Display';
 import Button from './Button';
+import StoredAnswers from './StoredAnswers';
 import { CalculatorStyles, CalculatorRowStyles } from './styles/CalculatorStyles';
 
 
@@ -35,7 +36,8 @@ injectGlobal`
 class Page extends Component {
 
   state = {
-    input: 0
+    input: 0, 
+    answers: ['1+1=2', '2+2=4']
   }
 
   handleInput = e => {
@@ -44,10 +46,14 @@ class Page extends Component {
     } else {
       this.setState({ input: this.state.input + e.target.value });
     }
+    
   }
 
   handleOutput = () => {
+    let currentInput = this.state.input;
+    let answer = math.evaluate(this.state.input);
     this.setState({ input: math.evaluate(this.state.input) });
+    this.setState({ answers: [...this.state.answers, `${currentInput} = ${answer}`] });  
   }
 
   handleClear = () => {
@@ -86,12 +92,13 @@ class Page extends Component {
               <Button value={0} handleChange={this.handleInput} />
               <Button value={"."} handleChange={this.handleInput} />
               <Button value={"="} handleChange={this.handleOutput} />
-              <Button value={7} handleChange={this.handleInput} />
+              <Button value={'/'} handleChange={this.handleInput} />
             </CalculatorRowStyles>
             <CalculatorRowStyles>
               <Button value={"CLEAR"} handleChange={this.handleClear} />
             </CalculatorRowStyles>
           </CalculatorStyles>
+          <StoredAnswers answers={this.state.answers}/>
         </StyledPage>
       </ThemeProvider>
     )
