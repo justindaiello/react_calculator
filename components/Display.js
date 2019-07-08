@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const DisplayStyles = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 50%;
+  width: 48%;
   border: 1px solid black;
   padding-right: 1em;
 `;
