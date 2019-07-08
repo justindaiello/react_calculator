@@ -40,13 +40,57 @@ injectGlobal`
   }
 `;
 
+const CalculatorStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 80%;
+  margin: 0 auto;
+  border: 1px solid black;
+`;
+
+const CalculatorRowStyles = styled.div`
+  width: 100%;
+  background: red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+`;
+
 class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
-          <p>Hi, page is hooked up.</p>
+          <CalculatorStyles>
+            <CalculatorRowStyles>
+              <button>7</button>
+              <button>8</button>
+              <button>9</button>
+              <button>*</button>
+            </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <button>4</button>
+              <button>5</button>
+              <button>6</button>
+              <button>-</button>
+            </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>+</button>
+            </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <button>0</button>
+              <button>.</button>
+              <button>=</button>
+              <button>/</button>
+            </CalculatorRowStyles>
+          </CalculatorStyles>
         </StyledPage>
       </ThemeProvider>
     )
