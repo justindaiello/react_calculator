@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import * as math from 'mathjs';
 import Meta from './Meta';
 import Display from './Display';
-import * as math from 'mathjs';
+import Button from './Button';
+
 
 const theme = {
   offWhite: '#EDEDED',
@@ -88,34 +90,34 @@ class Page extends Component {
           <CalculatorStyles>
             <Display input={this.state.input}/>
             <CalculatorRowStyles>
-              <button value={7} onClick={this.handleInput}>7</button>
-              <button value={8} onClick={this.handleInput}>8</button>
-              <button value={9} onClick={this.handleInput}>9</button>
-              <button value={"*"} onClick={this.handleInput}>*</button>
+              <Button value={7} handleChange={this.handleInput} />
+              <Button value={8} handleChange={this.handleInput} />
+              <Button value={9} handleChange={this.handleInput} />
+              <Button value={"*"} handleChange={this.handleInput} />            
+              </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <Button value={4} handleChange={this.handleInput} />
+              <Button value={5} handleChange={this.handleInput} />
+              <Button value={6} handleChange={this.handleInput} />
+              <Button value={"-"} handleChange={this.handleInput} />
             </CalculatorRowStyles>
 
             <CalculatorRowStyles>
-              <button value={4} onClick={this.handleInput}>4</button>
-              <button value={5} onClick={this.handleInput}>5</button>
-              <button value={6} onClick={this.handleInput}>6</button>
-              <button value={"-"} onClick={this.handleInput}>-</button>
+              <Button value={1} handleChange={this.handleInput} />
+              <Button value={2} handleChange={this.handleInput} />
+              <Button value={3} handleChange={this.handleInput} />
+              <Button value={"+"} handleChange={this.handleInput} />
             </CalculatorRowStyles>
 
             <CalculatorRowStyles>
-              <button value={1} onClick={this.handleInput}>1</button>
-              <button value={2} onClick={this.handleInput}>2</button>
-              <button value={3} onClick={this.handleInput}>3</button>
-              <button value={"+"} onClick={this.handleInput}>+</button>
-            </CalculatorRowStyles>
-
-            <CalculatorRowStyles>
-              <button value={0} onClick={this.handleInput}>0</button>
-              <button value={"."} onClick={this.handleInput}>.</button>
-              <button value={"="} onClick={this.handleOutput}>=</button>
-              <button value={7} onClick={this.handleInput}>/</button>
+              <Button value={0} handleChange={this.handleInput} />
+              <Button value={"."} handleChange={this.handleInput} />
+              <Button value={"="} handleChange={this.handleOutput} />
+              <Button value={7} handleChange={this.handleInput} />
             </CalculatorRowStyles>
             <CalculatorRowStyles>
-              <button onClick={this.handleClear}>CLEAR</button>
+              <Button value={"CLEAR"} handleChange={this.handleClear} />
             </CalculatorRowStyles>
           </CalculatorStyles>
         </StyledPage>
