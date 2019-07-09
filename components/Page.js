@@ -4,6 +4,7 @@ import * as math from 'mathjs';
 import Meta from './Meta';
 import Display from './Display';
 import Button from './Button';
+import EqualsButton from './EqualsButton';
 import StoredAnswers from './StoredAnswers';
 import { CalculatorStyles, CalculatorRowStyles } from './styles/CalculatorStyles';
 
@@ -37,7 +38,8 @@ class Page extends Component {
 
   state = {
     input: 0, 
-    answers: ['1+1=2', '2+2=4']
+    answers: ['1+1=2', '2+2=4'],
+    answer: '1+1=2'
   }
 
   handleInput = e => {
@@ -67,12 +69,13 @@ class Page extends Component {
           <Meta />
           <CalculatorStyles>
             <Display input={this.state.input}/>
+            
             <CalculatorRowStyles>
               <Button value={7} handleChange={this.handleInput} />
               <Button value={8} handleChange={this.handleInput} />
               <Button value={9} handleChange={this.handleInput} />
               <Button value={"*"} handleChange={this.handleInput} />            
-              </CalculatorRowStyles>
+            </CalculatorRowStyles>
 
             <CalculatorRowStyles>
               <Button value={4} handleChange={this.handleInput} />
@@ -91,12 +94,14 @@ class Page extends Component {
             <CalculatorRowStyles>
               <Button value={0} handleChange={this.handleInput} />
               <Button value={"."} handleChange={this.handleInput} />
-              <Button value={"="} handleChange={this.handleOutput} />
+              <EqualsButton value={"="} handleChange={this.handleOutput} input={this.state.answer}/>
               <Button value={'/'} handleChange={this.handleInput} />
             </CalculatorRowStyles>
+
             <CalculatorRowStyles>
               <Button value={"CLEAR"} handleChange={this.handleClear} />
             </CalculatorRowStyles>
+
           </CalculatorStyles>
           <StoredAnswers answers={this.state.answers}/>
         </StyledPage>

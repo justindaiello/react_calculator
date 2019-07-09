@@ -1,5 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const ALL_ANSWERS_QUERY = gql`
+  query ALL_ANSWERS_QUERY{
+    answers(orderBy: createdAt_DESC) {
+      id
+      answer
+    }
+  }
+`;
 
 const AnswerStyles = styled.div`
   position: absolute;
@@ -14,10 +25,20 @@ const AnswerStyles = styled.div`
   border: 1px solid black;
 `;
 
-const StoredAnswers = props => (
-  <AnswerStyles>
-  {props.answers.map(answer => <p>{answer}</p>)}
-  </AnswerStyles>
+class StoredAnswers extends Component {
+  render() {
+    return (
+    <Query query={ALL_ANSWERS_QUERY}>
+    {({ data, error, loading}) => {
+      if (loading) return <p>Loading..</p>;
+      if (error) return <p>Error: {error.message}</p>
+      return <AnswerStyles>
+      {data.answers.map(answer => <p>{answer.answer}</p>)}
+    </AnswerStyles>
+    }}
+    </Query>
     )
+  }
+}
 
 export default StoredAnswers;
