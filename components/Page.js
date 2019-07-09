@@ -57,7 +57,7 @@ class Page extends Component {
       this.setState({ input: 0 });
       return
     }
-    this.setState({ input: math.format(math.evaluate(this.state.input), {precision: 2}) });
+    this.setState({ input: math.format(math.evaluate(this.state.input), {precision: 4}) });
   }
 
   handleClear = () => {

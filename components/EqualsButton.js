@@ -28,7 +28,7 @@ class EqualsButton extends Component {
             alert('wrong');
             return
           }
-          const res = await createAnswer({ variables: {answer: `${this.props.input}=${math.format(math.evaluate(this.props.input), {precision: 2})}` }});
+          const res = await createAnswer({ variables: {answer: `${this.props.input}=${math.format(math.evaluate(this.props.input), {precision: 4})}` }});
           console.log(res);
         }}
         >
