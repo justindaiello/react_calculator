@@ -7,7 +7,7 @@
     "dev": "next -p 3000",
     "build": "next build",
     "start": "next start -p $PORT",
-    "now-build": "next build"
+    "heroku-postbuild": "next build"
   },
   "author": "",
   "license": "ISC",
