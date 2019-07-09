@@ -24,6 +24,10 @@ class EqualsButton extends Component {
         value={this.props.value} 
         onClick={async () => {
           this.props.handleChange();
+          if (this.props.input === '=') {
+            alert('wrong');
+            return
+          }
           const res = await createAnswer({ variables: {answer: `${this.props.input}=${math.format(math.evaluate(this.props.input), {precision: 2})}` }});
           console.log(res);
         }}

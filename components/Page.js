@@ -53,6 +53,11 @@ class Page extends Component {
   }
 
   handleOutput = () => {
+    if (this.state.input === '=') {
+      alert('wrong');
+      this.setState({ input: 0 });
+      return
+    }
     this.setState({ input: math.format(math.evaluate(this.state.input), {precision: 2}) });
   }
 
