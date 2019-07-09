@@ -28,6 +28,7 @@ injectGlobal`
     box-sizing: border-box;
     font-size: 10px;
     height: 100vh;
+    background: linear-gradient(to bottom right, #19547b, #ffd89b);
   }
   body {
     padding: 0;
@@ -52,7 +53,7 @@ class Page extends Component {
   }
 
   handleOutput = () => {
-    this.setState({ input: math.evaluate(this.state.input) });
+    this.setState({ input: math.format(math.evaluate(this.state.input), {precision: 2}) });
   }
 
   handleClear = () => {

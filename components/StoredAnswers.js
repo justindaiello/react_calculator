@@ -15,7 +15,7 @@ const ALL_ANSWERS_QUERY = gql`
 class StoredAnswers extends Component {
   render() {
     return (
-    <Query query={ALL_ANSWERS_QUERY} pollInterval={300} >
+    <Query query={ALL_ANSWERS_QUERY} pollInterval={0} >
     {({ data, error, loading}) => {
       {/* if (loading) return <p>Loading..</p>; */}
       if (error) return <p>Error: {error.message}</p>
