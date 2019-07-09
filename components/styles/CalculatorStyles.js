@@ -17,6 +17,7 @@ const CalculatorRowStyles = styled.div`
   background: ${props => props.theme.black};
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  box-shadow: ${props => props.theme.boxShadow};
 `;
 
 export { CalculatorStyles, CalculatorRowStyles };

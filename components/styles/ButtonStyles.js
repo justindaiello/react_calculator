@@ -4,9 +4,8 @@ const ButtonStyles = styled.button`
   background: ${props => props.theme.black};
   font-size: .85em;
   color: white;
+  cursor: pointer;
   &:hover {
-    cursor: pointer;
-    border: 2px solid #FFD89B;
     color: #FFD89B;
     transition: all .8s;
   }
