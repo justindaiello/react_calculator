@@ -13,8 +13,8 @@ const ALL_ANSWERS_QUERY = gql`
 `;
 
 const AnswerStyles = styled.div`
-  position: absolute;
-  top: 50%;
+  /* position: absolute;
+  top: 50%; */
   overflow: auto;
   display: flex;
   flex-direction: column;

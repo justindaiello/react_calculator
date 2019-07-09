@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 import * as math from 'mathjs';
 import Meta from './Meta';
+import Header from './Header';
 import Display from './Display';
 import Button from './Button';
 import EqualsButton from './EqualsButton';
@@ -17,7 +18,7 @@ const theme = {
 }
 
 const StyledPage = styled.div`
-  background: white;
+  background: linear-gradient(to bottom right, #19547B, #FFD89B);
   color: ${props => props.theme.black};
 `;
 
@@ -30,7 +31,6 @@ injectGlobal`
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
-    line-height: 2;
   }
 `;
 
@@ -66,6 +66,7 @@ class Page extends Component {
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
+          <Header />
           <CalculatorStyles>
             <Display input={this.state.input}/>
             
@@ -100,9 +101,9 @@ class Page extends Component {
             <CalculatorRowStyles>
               <Button value={"CLEAR"} handleChange={this.handleClear} />
             </CalculatorRowStyles>
-
+         
           </CalculatorStyles>
-          <StoredAnswers answers={this.state.answers}/>
+            <StoredAnswers answers={this.state.answers}/>
         </StyledPage>
       </ThemeProvider>
     )
