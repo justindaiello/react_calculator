@@ -10,7 +10,7 @@ const DisplayStyles = styled.div`
   border: 1px solid white;
   background: ${props => props.theme.black};
   h1 {
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: 400;
     padding-right: .5em;
     color: white;

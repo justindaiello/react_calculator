@@ -3,6 +3,7 @@ import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 import * as math from 'mathjs';
 import Meta from './Meta';
 import Header from './Header';
+import SubHeader from './SubHeader';
 import Display from './Display';
 import Button from './Button';
 import EqualsButton from './EqualsButton';
@@ -24,13 +25,15 @@ const StyledPage = styled.div`
 injectGlobal`
   html, 
   body {
+    box-sizing: border-box;
+    font-size: 10px;
     height: 100vh;
   }
   body {
     padding: 0;
     margin: 0;
+    font-family: 'Lato', sans-serif;
     font-size: 1.5rem;
-    background: linear-gradient(to bottom right, #19547B, #FFD89B);
   }
 `;
 
@@ -103,6 +106,7 @@ class Page extends Component {
             </CalculatorRowStyles>
          
           </CalculatorStyles>
+            <SubHeader>10 Most recent Calculations</SubHeader>
             <StoredAnswers answers={this.state.answers}/>
         </StyledPage>
       </ThemeProvider>
