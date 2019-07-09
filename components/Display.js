@@ -8,9 +8,13 @@ const DisplayStyles = styled.div`
   height: 65px;
   min-width: 300px;
   width: 30%;
-  border: 1px solid black;
+  border: 1px solid white;
+  background: ${props => props.theme.black};
   h1 {
+    font-size: 1.8em;
+    font-weight: 400;
     padding-right: .5em;
+    color: white;
   }
 `;
 

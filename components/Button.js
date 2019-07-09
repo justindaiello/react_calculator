@@ -1,12 +1,13 @@
 import React from 'react';
+import ButtonStyles from './styles/ButtonStyles';
 
 const Button = props => (
-  <button 
+  <ButtonStyles 
     value={props.value} 
     onClick={props.handleChange}
   >
     {props.value}
-  </button>
+  </ButtonStyles>
 )
 
 export default Button;

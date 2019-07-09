@@ -14,7 +14,7 @@ const CalculatorRowStyles = styled.div`
   height: 60px;
   width: 30%;
   min-width: 300px;
-  background: red;
+  background: ${props => props.theme.black};
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;

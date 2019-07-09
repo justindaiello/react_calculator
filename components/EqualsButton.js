@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import * as math from 'mathjs';
+import ButtonStyles from './styles/ButtonStyles';
 
 const CREATE_ANSWER_MUTATION = gql`
   mutation CREATE_ANSWER_MUTATION($answer: String) {
@@ -19,7 +20,7 @@ class EqualsButton extends Component {
     return (
       <Mutation mutation={CREATE_ANSWER_MUTATION} >
         {(createAnswer, {loading, error}) => (
-        <button 
+        <ButtonStyles 
         value={this.props.value} 
         onClick={async () => {
           this.props.handleChange();
@@ -28,7 +29,7 @@ class EqualsButton extends Component {
         }}
         >
           {this.props.value}
-        </button>
+        </ButtonStyles>
         )}
       </Mutation>
     )
