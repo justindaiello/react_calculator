@@ -8,7 +8,7 @@ import Display from './Display';
 import Button from './Button';
 import EqualsButton from './EqualsButton';
 import StoredAnswers from './StoredAnswers';
-import { CalculatorStyles, CalculatorRowStyles } from './styles/CalculatorStyles';
+import { CalculatorStyles, CalculatorRowStyles, ClearButtonRowStyles } from './styles/CalculatorStyles';
 
 
 
@@ -102,9 +102,9 @@ class Page extends Component {
               <Button value={'/'} handleChange={this.handleInput} />
             </CalculatorRowStyles>
 
-            <CalculatorRowStyles>
+            <ClearButtonRowStyles>
               <Button value={"CLEAR"} handleChange={this.handleClear} />
-            </CalculatorRowStyles>
+            </ClearButtonRowStyles>
           </CalculatorStyles>
             <SubHeader>10 Most recent Calculations</SubHeader>
             <StoredAnswers answers={this.state.answers}/>

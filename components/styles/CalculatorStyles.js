@@ -20,4 +20,15 @@ const CalculatorRowStyles = styled.div`
   box-shadow: ${props => props.theme.boxShadow};
 `;
 
-export { CalculatorStyles, CalculatorRowStyles };
+const ClearButtonRowStyles = styled.div`
+  max-width: 1000px;
+  height: 60px;
+  width: 30%;
+  min-width: 300px;
+  background: ${props => props.theme.black};
+  display: grid;
+  grid-template-columns: 1fr;
+  box-shadow: ${props => props.theme.boxShadow};
+`
+
+export { CalculatorStyles, CalculatorRowStyles, ClearButtonRowStyles };
