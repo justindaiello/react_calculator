@@ -18,6 +18,7 @@ const AnswerStyles = styled.div`
   min-width: 300px;
   height: 300px;
   margin: 0 auto;
+  margin-bottom: 2em;
   border: 1px solid white;
   background: ${props => props.theme.black};
   h5 {
