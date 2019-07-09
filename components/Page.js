@@ -38,8 +38,10 @@ class Page extends Component {
 
   state = {
     input: 0, 
-    answers: ['1+1=2', '2+2=4'],
-    answer: '1+1=2'
+  }
+
+  componentDidUpate(prevProps, prevState) {
+    console.log(this.state);
   }
 
   handleInput = e => {
@@ -52,10 +54,7 @@ class Page extends Component {
   }
 
   handleOutput = () => {
-    let currentInput = this.state.input;
-    let answer = math.evaluate(this.state.input);
-    this.setState({ input: math.evaluate(this.state.input) });
-    this.setState({ answers: [...this.state.answers, `${currentInput} = ${answer}`] });  
+    this.setState({ input: this.state.input + '=' + math.evaluate(this.state.input) });
   }
 
   handleClear = () => {
@@ -94,7 +93,7 @@ class Page extends Component {
             <CalculatorRowStyles>
               <Button value={0} handleChange={this.handleInput} />
               <Button value={"."} handleChange={this.handleInput} />
-              <EqualsButton value={"="} handleChange={this.handleOutput} input={this.state.answer}/>
+              <EqualsButton value={"="} handleChange={this.handleOutput} input={this.state.input}/>
               <Button value={'/'} handleChange={this.handleInput} />
             </CalculatorRowStyles>
 

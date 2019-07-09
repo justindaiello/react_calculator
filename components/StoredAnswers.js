@@ -33,7 +33,7 @@ class StoredAnswers extends Component {
       if (loading) return <p>Loading..</p>;
       if (error) return <p>Error: {error.message}</p>
       return <AnswerStyles>
-      {data.answers.map(answer => <p>{answer.answer}</p>)}
+      {data.answers.map(answer => <p key={answer.id}>{answer.answer}</p>)}
     </AnswerStyles>
     }}
     </Query>

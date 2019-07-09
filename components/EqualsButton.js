@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import * as math from 'mathjs';
 
 const CREATE_ANSWER_MUTATION = gql`
-  mutation CREATE_ANSWER_MUTATION($answer: String!) {
-    addAnswer(answer: $answer) {
+  mutation CREATE_ANSWER_MUTATION($answer: String) {
+    createAnswer(answer: $answer) {
       id
+      answer
     }
   }
 `;
@@ -13,13 +15,18 @@ const CREATE_ANSWER_MUTATION = gql`
 
 
 class EqualsButton extends Component {
+
   render() {
     return (
-      <Mutation mutation={CREATE_ANSWER_MUTATION} variables={this.props.answer}>
-        {(addAnswer, {loading, error}) => (
+      <Mutation mutation={CREATE_ANSWER_MUTATION} >
+        {(createAnswer, {loading, error}) => (
         <button 
         value={this.props.value} 
-        onClick={this.props.handleChange}
+        onClick={async () => {
+          this.props.handleChange();
+          const res = await createAnswer({variables: {answer: this.props.input}});
+          console.log(res);
+        }}
         >
           {this.props.value}
         </button>
