@@ -28,6 +28,10 @@ injectGlobal`
     font-size: 10px;
     height: 100vh;
     background: linear-gradient(to bottom right, #19547b, #ffd89b);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    width: 100%;
   }
   body {
     padding: 0;
