@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import * as math from 'mathjs';
 import Meta from './Meta';
+import Header from './Header';
+import SubHeader from './SubHeader';
+import Display from './Display';
+import Button from './Button';
+import EqualsButton from './EqualsButton';
+import StoredAnswers from './StoredAnswers';
+import { CalculatorStyles, CalculatorRowStyles } from './styles/CalculatorStyles';
+
+
 
 const theme = {
   offWhite: '#EDEDED',
@@ -9,44 +19,89 @@ const theme = {
 }
 
 const StyledPage = styled.div`
-  background: ${props => props.theme.offWhite};
   color: ${props => props.theme.black};
 `;
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400&display=swap');
   html, 
   body {
+    box-sizing: border-box;
+    font-size: 10px;
     height: 100vh;
   }
-
-  html {
-    box-sizing: border-box;
-    /* make font base 10 */
-    font-size: 10px;
-    scroll-behavior: smooth;
-  }
-
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
   body {
     padding: 0;
     margin: 0;
+    font-family: 'Lato', sans-serif;
     font-size: 1.5rem;
-    line-height: 2;
-    font-family: 'Source Sans Pro', sans-serif;
   }
 `;
 
 class Page extends Component {
+
+  state = {
+    input: 0, 
+  }
+
+  handleInput = e => {
+    if (this.state.input === 0) {
+      this.setState({ input: e.target.value });
+    } else {
+      this.setState({ input: this.state.input + e.target.value });
+    }
+  }
+
+  handleOutput = () => {
+    this.setState({ input: math.evaluate(this.state.input) });
+  }
+
+  handleClear = () => {
+    this.setState({ input: 0, hasError: false });
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
-          <p>Hi, page is hooked up.</p>
+          <Header />
+          <CalculatorStyles>
+            <Display input={this.state.input}/>
+            
+            <CalculatorRowStyles>
+              <Button value={7} handleChange={this.handleInput} />
+              <Button value={8} handleChange={this.handleInput} />
+              <Button value={9} handleChange={this.handleInput} />
+              <Button value={"*"} handleChange={this.handleInput} />            
+            </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <Button value={4} handleChange={this.handleInput} />
+              <Button value={5} handleChange={this.handleInput} />
+              <Button value={6} handleChange={this.handleInput} />
+              <Button value={"-"} handleChange={this.handleInput} />
+            </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <Button value={1} handleChange={this.handleInput} />
+              <Button value={2} handleChange={this.handleInput} />
+              <Button value={3} handleChange={this.handleInput} />
+              <Button value={"+"} handleChange={this.handleInput} />
+            </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <Button value={0} handleChange={this.handleInput} />
+              <Button value={"."} handleChange={this.handleInput} />
+              <EqualsButton value={"="} handleChange={this.handleOutput} input={this.state.input}/>
+              <Button value={'/'} handleChange={this.handleInput} />
+            </CalculatorRowStyles>
+
+            <CalculatorRowStyles>
+              <Button value={"CLEAR"} handleChange={this.handleClear} />
+            </CalculatorRowStyles>
+          </CalculatorStyles>
+            <SubHeader>10 Most recent Calculations</SubHeader>
+            <StoredAnswers answers={this.state.answers}/>
         </StyledPage>
       </ThemeProvider>
     )
