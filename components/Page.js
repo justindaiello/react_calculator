@@ -43,25 +43,20 @@ class Page extends Component {
     input: 0, 
   }
 
-  componentDidUpate(prevProps, prevState) {
-    console.log(this.state);
-  }
-
   handleInput = e => {
     if (this.state.input === 0) {
       this.setState({ input: e.target.value });
     } else {
       this.setState({ input: this.state.input + e.target.value });
     }
-    
   }
 
   handleOutput = () => {
-    this.setState({ input: this.state.input + '=' + math.evaluate(this.state.input) });
+    this.setState({ input: math.evaluate(this.state.input) });
   }
 
   handleClear = () => {
-    this.setState({ input: 0 });
+    this.setState({ input: 0, hasError: false });
   }
 
   render() {
@@ -104,7 +99,6 @@ class Page extends Component {
             <CalculatorRowStyles>
               <Button value={"CLEAR"} handleChange={this.handleClear} />
             </CalculatorRowStyles>
-         
           </CalculatorStyles>
             <SubHeader>10 Most recent Calculations</SubHeader>
             <StoredAnswers answers={this.state.answers}/>
