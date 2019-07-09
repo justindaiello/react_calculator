@@ -13,7 +13,6 @@ const CREATE_ANSWER_MUTATION = gql`
 `;
 
 
-
 class EqualsButton extends Component {
 
   render() {
@@ -24,7 +23,7 @@ class EqualsButton extends Component {
         value={this.props.value} 
         onClick={async () => {
           this.props.handleChange();
-          const res = await createAnswer({variables: {answer: this.props.input}});
+          const res = await createAnswer({ variables: {answer: `${this.props.input}=${math.evaluate(this.props.input)}` }});
           console.log(res);
         }}
         >
