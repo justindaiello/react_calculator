@@ -4,8 +4,8 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
 const ALL_ANSWERS_QUERY = gql`
-  query ALL_ANSWERS_QUERY{
-    answers(orderBy: createdAt_DESC) {
+  query ALL_ANSWERS_QUERY($skip: Int = 0, $first: Int = 10){
+    answers(orderBy: createdAt_DESC, first: $first, skip: $skip) {
       id
       answer
     }
@@ -20,7 +20,7 @@ const AnswerStyles = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 80%;
+  height: 300px;
   margin: 0 auto;
   border: 1px solid black;
 `;
@@ -28,7 +28,7 @@ const AnswerStyles = styled.div`
 class StoredAnswers extends Component {
   render() {
     return (
-    <Query query={ALL_ANSWERS_QUERY} pollInterval={0}>
+    <Query query={ALL_ANSWERS_QUERY} pollInterval={0} >
     {({ data, error, loading}) => {
       {/* if (loading) return <p>Loading..</p>; */}
       if (error) return <p>Error: {error.message}</p>

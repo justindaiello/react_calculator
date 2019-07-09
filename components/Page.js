@@ -18,7 +18,6 @@ const theme = {
 }
 
 const StyledPage = styled.div`
-  background: linear-gradient(to bottom right, #19547B, #FFD89B);
   color: ${props => props.theme.black};
 `;
 
@@ -31,6 +30,7 @@ injectGlobal`
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
+    background: linear-gradient(to bottom right, #19547B, #FFD89B);
   }
 `;
 
