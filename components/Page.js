@@ -13,7 +13,6 @@ import { CalculatorStyles, CalculatorRowStyles, ClearButtonRowStyles } from './s
 
 
 const theme = {
-  offWhite: '#EDEDED',
   black: '#393939',
   boxShadow: '0 12px 24px 0 rgba(0,0,0,.09)'
 }
@@ -62,7 +61,7 @@ class Page extends Component {
   }
 
   handleClear = () => {
-    this.setState({ input: 0, hasError: false });
+    this.setState({ input: 0 });
   }
 
   render() {
@@ -73,7 +72,6 @@ class Page extends Component {
           <Header />
           <CalculatorStyles>
             <Display input={this.state.input}/>
-            
             <CalculatorRowStyles>
               <Button value={7} handleChange={this.handleInput} />
               <Button value={8} handleChange={this.handleInput} />
@@ -106,8 +104,8 @@ class Page extends Component {
               <Button value={"CLEAR"} handleChange={this.handleClear} />
             </ClearButtonRowStyles>
           </CalculatorStyles>
-            <SubHeader>10 Most recent Calculations</SubHeader>
-            <StoredAnswers answers={this.state.answers}/>
+          <SubHeader>10 Most recent Calculations</SubHeader>
+          <StoredAnswers answers={this.state.answers}/>
         </StyledPage>
       </ThemeProvider>
     )

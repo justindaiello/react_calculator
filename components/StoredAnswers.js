@@ -17,11 +17,10 @@ class StoredAnswers extends Component {
     return (
     <Query query={ALL_ANSWERS_QUERY} pollInterval={300} >
     {({ data, error, loading}) => {
-      {/* if (loading) return <p>Loading..</p>; */}
       if (error) return <p>Error: {error.message}</p>
       return <AnswerStyles>
-      {data.answers.map(answer => <h5 key={answer.id}>{answer.answer}</h5>)}
-    </AnswerStyles>
+        {data.answers.map(answer => <h5 key={answer.id}>{answer.answer}</h5>)}
+      </AnswerStyles>
     }}
     </Query>
     )
