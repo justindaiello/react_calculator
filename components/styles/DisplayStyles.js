@@ -7,7 +7,6 @@ const DisplayStyles = styled.div`
   height: 65px;
   min-width: 300px;
   width: 30%;
-  border: 1px solid white;
   background: ${props => props.theme.black};
   h1 {
     font-size: 2em;

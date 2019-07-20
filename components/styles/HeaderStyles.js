@@ -11,4 +11,9 @@ const SubHeaderStyles = styled.h2`
   font-size: 1.75em;
 `
 
-export { HeaderStyles, SubHeaderStyles };
+const SubHeaderDetails = styled.h3`
+  text-align: center;
+  font-size: 1em;
+`
+
+export { HeaderStyles, SubHeaderStyles, SubHeaderDetails };
